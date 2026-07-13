@@ -1,0 +1,424 @@
+/* ============================================================
+   Personal academic website — shared stylesheet
+   Design system: Swiss minimalism, strictly monochrome.
+   Colors: bg #fafafa, text #111, secondary #666, hairline #e5e5e5.
+   NO accent colors anywhere.
+   ============================================================ */
+
+:root {
+  --bg: #fafafa;
+  --text: #111;
+  --secondary: #666;
+  --hairline: #e5e5e5;
+  --column: 680px;
+  --sans: -apple-system, "Helvetica Neue", Helvetica, Inter, Arial,
+    "PingFang SC", "Hiragino Sans GB", sans-serif;
+  --mono: "SF Mono", Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header / navigation ---------- */
+
+.site-header {
+  padding: 40px 0 28px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo:hover {
+  opacity: 0.6;
+}
+
+nav.nav {
+  display: flex;
+  gap: 24px;
+  font-size: 0.9rem;
+}
+
+nav.nav a {
+  text-decoration: none;
+  color: var(--text);
+  display: inline-flex;
+  gap: 7px;
+  align-items: baseline;
+}
+
+nav.nav a .num {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--secondary);
+}
+
+nav.nav a .label {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+}
+
+nav.nav a:hover .label,
+nav.nav a[aria-current="page"] .label {
+  border-bottom-color: var(--text);
+}
+
+/* ---------- Generic links ---------- */
+
+a {
+  color: var(--text);
+}
+
+.content a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.content a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Home / hero ---------- */
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-name {
+  font-size: clamp(2.6rem, 9vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.hero-cn {
+  font-size: 1.05rem;
+  color: var(--secondary);
+  margin: 0 0 4px;
+}
+
+.hero-affil {
+  font-size: 1rem;
+  color: var(--secondary);
+  margin: 0 0 28px;
+}
+
+.hero-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 340px;
+}
+
+/* Pure-CSS portrait placeholder (swap for a real photo later) */
+.portrait {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 190px;
+  background: repeating-linear-gradient(
+      45deg,
+      #ededed,
+      #ededed 10px,
+      #e5e5e5 10px,
+      #e5e5e5 20px
+    );
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  filter: grayscale(100%);
+}
+
+.portrait span {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  background: var(--bg);
+  padding: 3px 7px;
+  margin-bottom: 8px;
+}
+
+.bio p {
+  margin: 0 0 14px;
+}
+
+/* ---------- Sections ---------- */
+
+section {
+  margin: 48px 0;
+}
+
+.section-title {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin: 0 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.interests {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.interests li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.interests li:last-child {
+  border-bottom: none;
+}
+
+/* ---------- Essay / row listings ---------- */
+
+.year-heading {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+  margin: 40px 0 8px;
+}
+
+.row-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 4px 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.row .date {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--secondary);
+  padding-top: 3px;
+}
+
+.row .row-title {
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+  display: inline;
+}
+
+.row .row-title:hover {
+  border-bottom-color: var(--text);
+}
+
+.row .summary {
+  grid-column: 2;
+  color: var(--secondary);
+  font-size: 0.92rem;
+  margin-top: 3px;
+}
+
+/* ---------- Article ---------- */
+
+.back-link {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--secondary);
+  display: inline-block;
+  margin-bottom: 32px;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+.article-title {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.article-date {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--secondary);
+  margin: 0 0 40px;
+}
+
+.article-body {
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.article-body p {
+  margin: 0 0 22px;
+}
+
+/* CJK-friendly reading for Chinese essays */
+.article-body.cjk {
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- CV ---------- */
+
+.cv-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.cv-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.btn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--text);
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.cv-entry {
+  margin-bottom: 22px;
+}
+
+.cv-entry .role {
+  font-weight: 600;
+}
+
+.cv-entry .meta {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+  margin: 2px 0 4px;
+}
+
+.cv-entry .detail {
+  color: var(--secondary);
+  font-size: 0.95rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  margin-top: 72px;
+  padding: 32px 0 56px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.site-footer a:hover {
+  color: var(--text);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  body {
+    font-size: 16px;
+  }
+  .site-header {
+    padding: 28px 0 20px;
+    margin-bottom: 36px;
+  }
+  nav.nav {
+    gap: 16px;
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .row .summary {
+    grid-column: 1;
+  }
+  .portrait {
+    width: 120px;
+    height: 150px;
+  }
+}
